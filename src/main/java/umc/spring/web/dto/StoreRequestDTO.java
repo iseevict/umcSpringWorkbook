@@ -8,7 +8,7 @@ import lombok.Getter;
 public class StoreRequestDTO {
 
     @Getter
-    public static class JoinDto {
+    public static class StoreJoinDto {
         @NotBlank
         String name;
         @Size(min = 5, max = 12)
@@ -16,4 +16,5 @@ public class StoreRequestDTO {
         @NotNull
         Long regionId;
     }
+
 }
