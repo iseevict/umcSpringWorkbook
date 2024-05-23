@@ -2,6 +2,7 @@ package umc.spring.service.ReviewService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import umc.spring.apiPayLoad.code.status.ErrorStatus;
 import umc.spring.apiPayLoad.exception.handler.MemberHandler;
 import umc.spring.apiPayLoad.exception.handler.StoreHandler;
@@ -16,6 +17,7 @@ import umc.spring.web.dto.ReviewRequestDTO;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class ReviewCommandServiceImpl implements ReviewCommandService {
 
     private final ReviewRepository reviewRepository;
@@ -23,6 +25,7 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
     private final MemberRepository memberRepository;
 
     @Override
+    @Transactional
     public Review leaveReview(ReviewRequestDTO.LeaveReviewDto request) {
 
         Review newReview = ReviewConverter.leaveReview(request);
