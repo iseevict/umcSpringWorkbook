@@ -14,4 +14,10 @@ public class MissionRequestDTO {
         @NotNull
         String missionSpec;
     }
+
+    @Getter
+    public static class ChallengeMissionDto {
+        @NotNull
+        Long memberId;
+    }
 }
