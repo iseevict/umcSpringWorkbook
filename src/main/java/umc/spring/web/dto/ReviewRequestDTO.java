@@ -12,6 +12,8 @@ public class ReviewRequestDTO {
         @Size(max = 500)
         String body;
         @NotNull
+        String title;
+        @NotNull
         Float score;
         @Setter // 이렇게 해도 되나..??
         Long storeId;

@@ -46,11 +46,11 @@ public class MissionCommandServiceImpl implements MissionCommandService {
         Mission getMission = missionRepository.findById(missionId)
                 .orElseThrow(() -> new MissionHandler(ErrorStatus.MISSION_NOT_FOUND));
 
-        Member member = memberRepository.findById(request.getMemberId())
+        Member getMember = memberRepository.findById(request.getMemberId())
                 .orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
 
-        MemberMission memberMission = MemberMissionConverter.toMemberMission(member);
-        memberMission.setMission(getMission);
+        MemberMission memberMission = MemberMissionConverter.toMemberMission(getMember, getMission);
+        memberMission.setMemberMission(getMission, getMember);
 
         return memberMission;
     }

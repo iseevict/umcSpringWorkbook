@@ -17,6 +17,7 @@ public class ReviewConverter {
 
     public static Review leaveReview(ReviewRequestDTO.LeaveReviewDto request) {
         return Review.builder()
+                .title(request.getTitle())
                 .body(request.getBody())
                 .score(request.getScore())
                 .store(null)
