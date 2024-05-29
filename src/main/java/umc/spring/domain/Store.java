@@ -51,4 +51,11 @@ public class Store extends BaseEntity {
         region.getStoreList().add(this);
     }
 
+    /**
+     * 리뷰 추가할 때 점수 수정
+     */
+    public void updateScore(Float score) {
+        this.score = score;
+    }
+
 }
