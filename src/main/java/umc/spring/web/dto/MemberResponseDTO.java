@@ -36,4 +36,10 @@ public class MemberResponseDTO {
         LocalDate deadLine;
         MissionStatus status;
     }
+
+    @Builder @Getter @NoArgsConstructor @AllArgsConstructor
+    public static class MemberCompleteMissionDto {
+        Long id;
+        MissionStatus status;
+    }
 }
