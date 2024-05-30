@@ -51,4 +51,11 @@ public class MemberMissionConverter {
                 .memberChallengingMissionList(memberChallengingMissionDtoList)
                 .build();
     }
+
+    public static MemberResponseDTO.MemberCompleteMissionDto completeMissionDto(MemberMission memberMission) {
+        return MemberResponseDTO.MemberCompleteMissionDto.builder()
+                .id(memberMission.getId())
+                .status(memberMission.getStatus())
+                .build();
+    }
 }

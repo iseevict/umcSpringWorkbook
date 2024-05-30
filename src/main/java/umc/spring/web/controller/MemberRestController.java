@@ -34,4 +34,11 @@ public class MemberRestController {
         Page<MemberMission> memberChallengingMissionList = memberQueryService.getMemberChallengingMissionList(memberId, page);
         return ApiResponse.onSuccess(MemberMissionConverter.getMemberChallengingMissionListDto(memberChallengingMissionList));
     }
+
+    @PatchMapping("/{memberId}/missions/{missionId}")
+    public ApiResponse<MemberResponseDTO.MemberCompleteMissionDto> completeMission(@PathVariable("memberId") Long memberId, @PathVariable("missionId") Long missionId) {
+        MemberMission memberMission = memberCommandService.completeMission(memberId, missionId);
+
+        return ApiResponse.onSuccess(MemberMissionConverter.completeMissionDto(memberMission));
+    }
 }
