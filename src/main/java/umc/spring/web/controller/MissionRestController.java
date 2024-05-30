@@ -1,10 +1,7 @@
 package umc.spring.web.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import umc.spring.apiPayLoad.ApiResponse;
 import umc.spring.converter.MemberMissionConverter;
 import umc.spring.converter.MissionConverter;
@@ -30,5 +27,10 @@ public class MissionRestController {
     public ApiResponse<MissionResponseDTO.ChallengeMissionResultDto> challenge(@RequestBody MissionRequestDTO.ChallengeMissionDto request, @PathVariable Long missionId) {
         MemberMission memberMission = missionCommandService.challengeMission(request, missionId);
         return ApiResponse.onSuccess(MemberMissionConverter.toChallengeMissionDto(memberMission));
+    }
+
+    @GetMapping("/stores/{storeId}/missions")
+    public ApiResponse<MissionResponseDTO.storeMissionPreviewListDto> getStoreMissionPreviewList(@PathVariable("storeId") Long storeId, @RequestParam("page") Integer page) {
+        return null;
     }
 }
