@@ -32,4 +32,11 @@ public class ReviewRestController {
 
         return ApiResponse.onSuccess(ReviewConverter.reviewPreviewListDto(reviewList));
     }
+
+    @GetMapping("{memberId}/reviews")
+    public ApiResponse<ReviewResponseDTO.PersonalReviewPreviewListDto> getPersonalReviewList(@PathVariable("memberId") Long memberId, @RequestParam("page") Integer page) {
+        Page<Review> personalReviewList = reviewQueryService.getPersonalReviewList(memberId, page);
+
+        return ApiResponse.onSuccess(ReviewConverter.personalReviewPreviewListDto(personalReviewList));
+    }
 }
